@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link} from "react-router-dom";
 
-const Game = ({ score, myChoice, setScore }) => {
+const Game = ({ score, myChoice, setScore, user, setUser, results, setResults, myChoices, setMyChoices, houseChoices, setHouseChoices}) => {
+  const no_rounds = 1;
+
   const [house, setHouse] = useState("");
   const [playerWin, setPlayerWin] = useState("");
 
@@ -16,28 +18,48 @@ const Game = ({ score, myChoice, setScore }) => {
   }, []);
 
   const Result = () => {
+    setMyChoices([...myChoices, myChoice]);
+    setHouseChoices([...houseChoices, house]);
     if (myChoice === "rock" && house === "scissors") {
-      setPlayerWin("win");
+      res = "win";
       setScore(score + 1);
     } else if (myChoice === "rock" && house === "paper") {
-      setPlayerWin("lose");
+      res = "lose";
       setScore(score - 1);
     } else if (myChoice === "scissors" && house === "paper") {
-      setPlayerWin("win");
+      res = "win";
       setScore(score + 1);
     } else if (myChoice === "scissors" && house === "rock") {
-      setPlayerWin("lose");
+      res = "lose";
       setScore(score - 1);
     } else if (myChoice === "paper" && house === "rock") {
-      setPlayerWin("win");
+      res = "win";
       setScore(score + 1);
     } else if (myChoice === "paper" && house === "scissors") {
-      setPlayerWin("lose");
+      res = "lose";
       setScore(score - 1);
     } else {
-      setPlayerWin("draw");
+      res = "draw";
     }
+    setPlayerWin(res);
+    setResults([...results, res]);
   };
+
+  const reset = () => {
+    setHouse("");
+    setPlayerWin("");
+    console.log("results", results);
+    console.log("myChoices", myChoices);
+    console.log("houseChoices", houseChoices);
+    console.log("user", user);
+
+    
+    setResults([]);
+    setMyChoices([]);
+    setHouseChoices([]);
+    setUser({});
+
+  }
 
   useEffect(() => {
     const timer =
@@ -62,27 +84,52 @@ const Game = ({ score, myChoice, setScore }) => {
           }`}
         ></div>
       </div>
-      {playerWin == "win" && (
+      {playerWin == "win" &&  myChoices.length  < no_rounds && (
         <div className="game__play">
           <span className="text">You Win</span>
-          <Link to="/" className="play-again" onClick={() => setHouse()}>
+          <Link to="/play" className="play-again" onClick={() => setHouse()}>
             Play Again
           </Link>
         </div>
       )}
-      {playerWin == "lose" && (
+      {playerWin == "lose" && myChoices.length  < no_rounds && (
         <div className="game__play">
           <span className="text">You Lose</span>
-          <Link to="/" className="play-again" onClick={() => setHouse()}>
+          <Link to="/play" className="play-again" onClick={() => setHouse()}>
             Play Again
           </Link>
         </div>
       )}
-      {playerWin == "draw" && (
+      {playerWin == "draw" && myChoices.length  < no_rounds && (
         <div className="game__play">
           <span className="text">Draw</span>
-          <Link to="/" className="play-again" onClick={() => setHouse()}>
+          <Link to="/play" className="play-again" onClick={() => setHouse()}>
             Play Again
+          </Link>
+        </div>
+      )}
+
+      {playerWin == "win" &&  myChoices.length  >= no_rounds && (
+        <div className="game__play">
+          <span className="text">You Win</span>
+          <Link to="/" className="play-again" onClick={reset}>
+            Finito
+          </Link>
+        </div>
+      )}
+      {playerWin == "lose" && myChoices.length  >= no_rounds && (
+        <div className="game__play">
+          <span className="text">You Lose</span>
+          <Link to="/" className="play-again" onClick={reset}>
+            Finito
+          </Link>
+        </div>
+      )}
+      {playerWin == "draw" && myChoices.length >= no_rounds && (
+        <div className="game__play">
+          <span className="text">Draw</span>
+          <Link to="/" className="play-again" onClick={reset}>
+            Finito
           </Link>
         </div>
       )}
@@ -112,7 +159,7 @@ export default Game;
       {playerWin == "win" && <h2>You Win</h2>}
       {playerWin == "lose" && <h2>You lose</h2>}
       {playerWin == "draw" && <h2>Draw</h2>}
-      <Link to="/" onClick={() => setHouse()}>
+      <Link to="/play" onClick={() => setHouse()}>
         Play Again
       </Link>
 
