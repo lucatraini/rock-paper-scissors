@@ -6,11 +6,6 @@ app = Flask(__name__)
 
 CORS(app)
 
-# @app.route('/random_choice', methods=['GET'])
-# def random_choice():
-#     choices = ["rock", "paper", "scissors"]
-#     return jsonify(choice=random.choice(choices))
-
 @app.route('/random_choice', methods=['POST'])
 def random_choice():
     data = request.get_json()
