@@ -2,9 +2,13 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Triangle from "../images/bg-triangle.svg";
 
-const Play = ({ setMyChoice }) => {
+const Play = ({ setMyChoice, setThinkTimes, thinkTimes}) => {
+  const t1 = Date.now();
+
   const setChoice = (e) => {
+    t2 = Date.now();
     setMyChoice(e.target.dataset.id);
+    setThinkTimes([...thinkTimes, (t2 - t1)]);
   };
 
 

@@ -3,15 +3,21 @@ import { useNavigate } from "react-router-dom";
 
 const User = ({ user, setUser }) => {
     const navigate = useNavigate();
-    
-    // Ensure user properties are initialized
-    const initializedUser = {
-        _id: user._id || Date.now(),
-        id: user.id || '',
-        eta: user.eta || '',
-        sesso: user.sesso || '',
-        scolarita: user.scolarita || ''
-    };
+
+    useEffect(() => {
+        debugger;
+        // Ensure user properties are initialized
+        const initializedUser = {
+            _id: Date.now(),
+            id: '',
+            eta: '',
+            sesso: '',
+            scolarita: ''
+        };
+        // Initialize user properties if not already provided
+        setUser(initializedUser);
+    }, []);
+
 
     // Handler to update the user's id
     const setId = (id) => {
@@ -44,12 +50,6 @@ const User = ({ user, setUser }) => {
             alert('Riempi tutti i campi per continuare!');
         }
     };
-
-
-    useEffect(() => {
-        // Initialize user properties if not already provided
-        setUser(initializedUser);
-    }, [setUser]);
 
     return (
         <div>

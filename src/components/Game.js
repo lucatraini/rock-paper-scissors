@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link} from "react-router-dom";
 
-const Game = ({ score, myChoice, setScore, user, setUser, results, setResults, myChoices, setMyChoices, houseChoices, setHouseChoices}) => {
+const Game = ({ score, myChoice, setScore, user, results, setResults, myChoices, setMyChoices, houseChoices, setHouseChoices, thinkTimes, setThinkTimes}) => {
   const no_rounds = 3;
 
   const [house, setHouse] = useState("");
@@ -63,7 +63,7 @@ const Game = ({ score, myChoice, setScore, user, setUser, results, setResults, m
     setHouse("");
     setPlayerWin("");
 
-    game = {...user, results: results, myChoices: myChoices, houseChoices: houseChoices};
+    game = {...user, results: results, myChoices: myChoices, houseChoices: houseChoices, thinkTimes: thinkTimes};
 
     const requestOptions = {
       method: 'POST',
@@ -80,8 +80,9 @@ const Game = ({ score, myChoice, setScore, user, setUser, results, setResults, m
         setResults([]);
         setMyChoices([]);
         setHouseChoices([]);
-        setUser({});
-        setScore(0);})
+        setScore(0);
+        setThinkTimes([]);
+      })
       .catch(error => console.error('Error:', error));
 
   }

@@ -10,6 +10,7 @@ function App() {
   const [user, setUser] = useState({});
   const [myChoice, setMyChoice] = useState("");
   const [score, setScore] = useState(0);
+  const [thinkTimes, setThinkTimes] = useState([]);
   
   const [results, setResults] = useState([]);
   const [myChoices, setMyChoices] = useState([]);
@@ -21,13 +22,13 @@ function App() {
         <Header score={score} />
         <Routes>
           <Route path="/" element={<User user={user} setUser={setUser} />} />
-          <Route path="/play" element={<Play setMyChoice={setMyChoice} />} />
+          <Route path="/play" element={<Play setMyChoice={setMyChoice} thinkTimes={thinkTimes} setThinkTimes={setThinkTimes} />} />
           <Route
             path="/game"
             element={
               <Game myChoice={myChoice} score={score} setScore={setScore} user={user} setUser={setUser}
               results={results} setResults={setResults} myChoices={myChoices} setMyChoices={setMyChoices}
-              houseChoices={houseChoices} setHouseChoices={setHouseChoices}
+              houseChoices={houseChoices} setHouseChoices={setHouseChoices} thinkTimes={thinkTimes} setThinkTimes={setThinkTimes}
               />
             }
           />
