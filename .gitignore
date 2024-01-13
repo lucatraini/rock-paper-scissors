@@ -16,3 +16,6 @@ ehthumbs.db
 Thumbs.db
 .parcel-cache/
 
+
+__pycache__
+.env
