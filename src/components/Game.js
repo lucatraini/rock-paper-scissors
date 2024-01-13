@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link} from "react-router-dom";
 
 const Game = ({ score, myChoice, setScore, user, setUser, results, setResults, myChoices, setMyChoices, houseChoices, setHouseChoices}) => {
-  const no_rounds = 1;
+  const no_rounds = 3;
 
   const [house, setHouse] = useState("");
   const [playerWin, setPlayerWin] = useState("");
@@ -10,9 +10,23 @@ const Game = ({ score, myChoice, setScore, user, setUser, results, setResults, m
   const [counter, setCounter] = useState(3);
 
   const newHousePick = () => {
-    const choices = ["rock", "paper", "scissors"];
-    setHouse(choices[Math.floor(Math.random() * 3)]);
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        no_round: myChoices.length + 1,
+        seed: user._id, 
+      }),
+    };
+    
+    fetch('http://localhost:8000/random_choice', requestOptions) 
+      .then(response => response.json())
+      .then(data => setHouse(data.choice))
+      .catch(error => console.error('Error:', error));
   };
+
   useEffect(() => {
     newHousePick();
   }, []);
@@ -48,16 +62,27 @@ const Game = ({ score, myChoice, setScore, user, setUser, results, setResults, m
   const reset = () => {
     setHouse("");
     setPlayerWin("");
-    console.log("results", results);
-    console.log("myChoices", myChoices);
-    console.log("houseChoices", houseChoices);
-    console.log("user", user);
 
+    game = {...user, results: results, myChoices: myChoices, houseChoices: houseChoices};
+
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(game),
+    };
     
-    setResults([]);
-    setMyChoices([]);
-    setHouseChoices([]);
-    setUser({});
+    fetch('http://localhost:8000/store_game', requestOptions) 
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .then(() => {
+        setResults([]);
+        setMyChoices([]);
+        setHouseChoices([]);
+        setUser({});
+        setScore(0);})
+      .catch(error => console.error('Error:', error));
 
   }
 

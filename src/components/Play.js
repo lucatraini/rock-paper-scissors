@@ -7,6 +7,7 @@ const Play = ({ setMyChoice }) => {
     setMyChoice(e.target.dataset.id);
   };
 
+
   return (
     <div className="play">
       <img src={Triangle} alt="" className="triangle" />
