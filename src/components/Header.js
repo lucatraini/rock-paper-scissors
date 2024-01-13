@@ -1,6 +1,6 @@
 import React from "react";
 
-const Header = ({ score }) => {
+const Header = ({ score, houseScore }) => {
   return (
     <div className="header">
       <div className="text">
@@ -11,6 +11,10 @@ const Header = ({ score }) => {
       <div className="score-box">
         <span>Score</span>
         <div className="score-box__score">{score}</div>
+      </div>
+      <div className="score-box">
+        <span>House Score</span>
+        <div className="score-box__score">{houseScore}</div>
       </div>
     </div>
   );

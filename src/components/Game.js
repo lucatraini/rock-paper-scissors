@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link} from "react-router-dom";
 
-const Game = ({ score, myChoice, setScore, user, results, setResults, myChoices, setMyChoices, houseChoices, setHouseChoices, thinkTimes, setThinkTimes}) => {
+const Game = ({ score, myChoice, setScore, user, results, setResults, myChoices, setMyChoices, houseChoices, setHouseChoices, thinkTimes, setThinkTimes, houseScore, setHouseScore}) => {
   const no_rounds = 3;
 
   const [house, setHouse] = useState("");
@@ -39,19 +39,19 @@ const Game = ({ score, myChoice, setScore, user, results, setResults, myChoices,
       setScore(score + 1);
     } else if (myChoice === "rock" && house === "paper") {
       res = "lose";
-      setScore(score - 1);
+      setHouseScore(houseScore + 1);
     } else if (myChoice === "scissors" && house === "paper") {
       res = "win";
       setScore(score + 1);
     } else if (myChoice === "scissors" && house === "rock") {
       res = "lose";
-      setScore(score - 1);
+      setHouseScore(houseScore + 1);
     } else if (myChoice === "paper" && house === "rock") {
       res = "win";
       setScore(score + 1);
     } else if (myChoice === "paper" && house === "scissors") {
       res = "lose";
-      setScore(score - 1);
+      setHouseScore(houseScore + 1);
     } else {
       res = "draw";
     }
@@ -81,6 +81,7 @@ const Game = ({ score, myChoice, setScore, user, results, setResults, myChoices,
         setMyChoices([]);
         setHouseChoices([]);
         setScore(0);
+        setHouseScore(0);
         setThinkTimes([]);
       })
       .catch(error => console.error('Error:', error));
