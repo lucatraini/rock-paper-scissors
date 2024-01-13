@@ -26,7 +26,7 @@ function App() {
           <Route
             path="/game"
             element={
-              <Game myChoice={myChoice} score={score} setScore={setScore} user={user} setUser={setUser}
+              <Game myChoice={myChoice} score={score} setScore={setScore} user={user}
               results={results} setResults={setResults} myChoices={myChoices} setMyChoices={setMyChoices}
               houseChoices={houseChoices} setHouseChoices={setHouseChoices} thinkTimes={thinkTimes} setThinkTimes={setThinkTimes}
               />
