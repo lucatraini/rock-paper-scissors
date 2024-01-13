@@ -5,8 +5,7 @@ const User = ({ user, setUser }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        debugger;
-        // Ensure user properties are initialized
+        // Initialize user properties
         const initializedUser = {
             _id: Date.now(),
             id: '',
