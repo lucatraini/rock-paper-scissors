@@ -96,7 +96,7 @@ const User = ({ user, setUser }) => {
                 </select>
             </div>
             <div className='input'>
-                <Link className="user-submit"  onClick={goToPlayPage}>Inizia!</Link>
+                <a className="user-submit"  onClick={goToPlayPage}>Inizia!</a>
             </div>
         </div>
     );

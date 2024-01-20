@@ -9,8 +9,10 @@ div.input{
     padding: 10px 20px;
     border-radius: 5px;
     font-size: .8rem;
+    color: $dark-text;
 
     &:hover{
         color: red;
+        cursor: pointer;
     }
 }
