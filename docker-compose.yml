@@ -12,7 +12,8 @@ services:
     depends_on:
       - mongo
     environment:
-      - MONGO=mongo
+      - MONGO_HOST=mongo
+      - FLASK_HOST=backend
 
 
   mongo:

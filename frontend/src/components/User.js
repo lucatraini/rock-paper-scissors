@@ -88,6 +88,7 @@ const User = ({ user, setUser }) => {
                     onChange={(e) => setEducation(e.target.value)}
                 >
                     <option value="">Seleziona Scolarità</option>
+                    <option value="Licenza media">Licenza media</option>
                     <option value="Diploma di scuola superiore">Diploma di scuola superiore</option>
                     <option value="Laurea di primo livello">Laurea di primo livello</option>
                     <option value="Laurea di secondo livello">Laurea di secondo livello</option>
