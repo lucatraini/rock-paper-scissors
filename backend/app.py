@@ -39,7 +39,7 @@ def store_game():
     games.insert_one(data)
     return jsonify(success=True)
 
-@app.route('/games', methods=['GET'])
+@app.route('/download', methods=['GET'])
 def get_games():
     data = []
     for game in games.find():
