@@ -4,16 +4,16 @@ const Header = ({ score, houseScore }) => {
   return (
     <div className="header">
       <div className="text">
-        <span>Rock</span>
-        <span>Paper</span>
-        <span>Scissors</span>
+        <span>Sasso</span>
+        <span>Carta</span>
+        <span>Forbici</span>
       </div>
       <div className="score-box">
-        <span>Score</span>
+        <span>Punteggio Giocatore</span>
         <div className="score-box__score">{score}</div>
       </div>
       <div className="score-box">
-        <span>House Score</span>
+        <span>Punteggio Computer</span>
         <div className="score-box__score">{houseScore}</div>
       </div>
     </div>

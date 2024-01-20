@@ -18,7 +18,7 @@ const Footer = () => {
           . Coded by <a href="https://youtube.com/codebucks" target="_blank">CodeBucks</a>.
         </div>
         <button className="rules" onClick={toggle}>
-          Rules
+          Regole
         </button>
       </footer>
       {modal ? <Modal toggle={toggle} /> : null}

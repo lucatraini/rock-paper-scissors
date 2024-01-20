@@ -52,7 +52,7 @@ const User = ({ user, setUser }) => {
 
     return (
         <div>
-            <h2>User Information</h2>
+            <h2>Informazioni Giocatore</h2>
             <div>
                 <label>ID: </label>
                 <input
@@ -76,7 +76,7 @@ const User = ({ user, setUser }) => {
                     onChange={(e) => setGender(e.target.value)}
                 >
                     <option value="">Seleziona Sesso</option>
-                    <option value="uomo">Maschio</option>
+                    <option value="uomo">Uomo</option>
                     <option value="donna">Donna</option>
                     <option value="altro">Altro</option>
                 </select>

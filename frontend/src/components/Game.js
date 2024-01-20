@@ -104,7 +104,7 @@ const Game = ({ score, myChoice, setScore, user, results, setResults, myChoices,
   return (
     <div className="game">
       <div className="game__you">
-        <span className="text">You Picked</span>
+        <span className="text">La Tua Scelta</span>
         <div
           className={`icon icon--${myChoice} ${
             playerWin == "win" ? `icon icon--${myChoice}--winner` : ""
@@ -113,32 +113,32 @@ const Game = ({ score, myChoice, setScore, user, results, setResults, myChoices,
       </div>
       {playerWin == "win" &&  myChoices.length  < no_rounds && (
         <div className="game__play">
-          <span className="text">You Win</span>
+          <span className="text">Vittoria</span>
           <Link to="/play" className="play-again" onClick={() => setHouse()}>
-            Play Again
+            Continua
           </Link>
         </div>
       )}
       {playerWin == "lose" && myChoices.length  < no_rounds && (
         <div className="game__play">
-          <span className="text">You Lose</span>
+          <span className="text">Sconfitta</span>
           <Link to="/play" className="play-again" onClick={() => setHouse()}>
-            Play Again
+            Continua
           </Link>
         </div>
       )}
       {playerWin == "draw" && myChoices.length  < no_rounds && (
         <div className="game__play">
-          <span className="text">Draw</span>
+          <span className="text">Pareggio</span>
           <Link to="/play" className="play-again" onClick={() => setHouse()}>
-            Play Again
+            Continua
           </Link>
         </div>
       )}
 
       {playerWin == "win" &&  myChoices.length  >= no_rounds && (
         <div className="game__play">
-          <span className="text">You Win</span>
+          <span className="text">Vittoria</span>
           <Link to="/" className="play-again" onClick={reset}>
             Finito
           </Link>
@@ -146,7 +146,7 @@ const Game = ({ score, myChoice, setScore, user, results, setResults, myChoices,
       )}
       {playerWin == "lose" && myChoices.length  >= no_rounds && (
         <div className="game__play">
-          <span className="text">You Lose</span>
+          <span className="text">Sconfitta</span>
           <Link to="/" className="play-again" onClick={reset}>
             Finito
           </Link>
@@ -154,7 +154,7 @@ const Game = ({ score, myChoice, setScore, user, results, setResults, myChoices,
       )}
       {playerWin == "draw" && myChoices.length >= no_rounds && (
         <div className="game__play">
-          <span className="text">Draw</span>
+          <span className="text">Pareggio</span>
           <Link to="/" className="play-again" onClick={reset}>
             Finito
           </Link>
@@ -162,7 +162,7 @@ const Game = ({ score, myChoice, setScore, user, results, setResults, myChoices,
       )}
 
       <div className="game__house">
-        <span className="text">The House Picked</span>
+        <span className="text">La Scelta del Computer</span>
         {counter == 0 ? (
           <div
             className={`icon icon--${house} ${
@@ -187,7 +187,7 @@ export default Game;
       {playerWin == "lose" && <h2>You lose</h2>}
       {playerWin == "draw" && <h2>Draw</h2>}
       <Link to="/play" onClick={() => setHouse()}>
-        Play Again
+        Continua
       </Link>
 
 */

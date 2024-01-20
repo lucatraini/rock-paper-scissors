@@ -8,7 +8,7 @@ const Modal = ({ toggle }) => {
     <div className="modal-container">
       <div className="modal-box">
         <div className="modal__header">
-          <h1>Rules</h1>
+          <h1>Regole</h1>
           <button onClick={toggle}>
             <img src={close} alt="Close" srcset="" />
           </button>
