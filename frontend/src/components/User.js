@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const User = ({ user, setUser }) => {
     const navigate = useNavigate();
@@ -53,7 +53,7 @@ const User = ({ user, setUser }) => {
     return (
         <div>
             <h2>Informazioni Giocatore</h2>
-            <div>
+            <div className='input'>
                 <label>ID: </label>
                 <input
                     type="text"
@@ -61,7 +61,7 @@ const User = ({ user, setUser }) => {
                     onChange={(e) => setId(e.target.value)}
                 />
             </div>
-            <div>
+            <div className='input'>
                 <label>Età: </label>
                 <input
                     type="number"
@@ -69,7 +69,7 @@ const User = ({ user, setUser }) => {
                     onChange={(e) => setAge(e.target.value)}
                 />
             </div>
-            <div>
+            <div className='input'>
                 <label>Sesso: </label>
                 <select
                     value={user.sesso || ''}
@@ -81,7 +81,7 @@ const User = ({ user, setUser }) => {
                     <option value="altro">Altro</option>
                 </select>
             </div>
-            <div>
+            <div className='input'>
                 <label>Titolo di studio (indicare il più alto titolo censeguito) </label>
                 <select
                     value={user.scolarita || ''}
@@ -95,8 +95,8 @@ const User = ({ user, setUser }) => {
                     <option value="Master/Dottorato di ricerca/Specializzazione">Master/Dottorato di ricerca/Specializzazione</option>
                 </select>
             </div>
-            <div>
-                <button onClick={goToPlayPage}>Inizia!</button>
+            <div className='input'>
+                <Link className="user-submit"  onClick={goToPlayPage}>Inizia!</Link>
             </div>
         </div>
     );

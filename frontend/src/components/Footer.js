@@ -11,11 +11,11 @@ const Footer = () => {
     <>
       <footer className="footer">
         <div className="attribution">
-          Challenge by{" "}
-          <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">
-            Frontend Mentor
+          Adattamento di {" "}
+          <a href="https://github.com/codebucks27/ReactJs-rock-paper-scissors-game" target="_blank">
+          rock-paper-scissors
           </a>
-          . Coded by <a href="https://youtube.com/codebucks" target="_blank">CodeBucks</a>.
+           sviluppato da <a href="https://youtube.com/codebucks" target="_blank">CodeBucks</a>.
         </div>
         <button className="rules" onClick={toggle}>
           Regole
