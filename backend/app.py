@@ -1,4 +1,5 @@
 import os
+import pytz
 
 from flask import Flask, request, jsonify, Response
 import random
@@ -71,8 +72,8 @@ def get_games():
     # generate date column from timestamp
     dates = pd.to_datetime(df['Timestamp'], unit='ms')
     df.insert(loc=1, column='Inizio', value=dates)
-
-
+    cest = pytz.timezone('Europe/Berlin')
+    df['Inizio'] = df['Inizio'].dt.tz_localize('UTC').dt.tz_convert(cest)
 
     csv = df.to_csv(index=False)
 
