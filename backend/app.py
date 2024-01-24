@@ -60,6 +60,9 @@ def get_games():
     
     df = pd.DataFrame(data)
 
+    if df.empty:
+        return "Il database è vuoto."
+
     if 'encode' in request.args:
         encode(df)
 
