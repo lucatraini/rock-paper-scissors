@@ -47,10 +47,10 @@ def get_games():
         print(game)
         for i in range(no_rounds):
             j = i+1
-            game[f"S{j}"] = game['myChoices'][i]
-            game[f"C{j}"] = game['houseChoices'][i]
-            game[f"R{j}"] = game['results'][i]
-            game[f"T{j}"] = game['thinkTimes'][i]
+            game[f"S{j}"] = game['myChoices'][i] if len(game['myChoices']) > i else None
+            game[f"C{j}"] = game['houseChoices'][i] if len(game['houseChoices']) > i else None
+            game[f"R{j}"] = game['results'][i] if len(game['results']) > i else None
+            game[f"T{j}"] = game['thinkTimes'][i] if len(game['thinkTimes']) > i else None
         del game['myChoices']
         del game['houseChoices']
         del game['results']
