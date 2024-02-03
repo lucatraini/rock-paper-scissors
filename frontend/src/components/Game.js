@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link} from "react-router-dom";
 
 const Game = ({ score, myChoice, setScore, user, results, setResults, myChoices, setMyChoices, houseChoices, setHouseChoices, thinkTimes, setThinkTimes, houseScore, setHouseScore}) => {
-  const no_rounds = 100;
+  const no_rounds = 80;
 
   const [house, setHouse] = useState("");
   const [playerWin, setPlayerWin] = useState("");
